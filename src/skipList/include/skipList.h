@@ -21,7 +21,7 @@
 
 // 转存文件名
 #define STORE_FILE "../config/dumpFile"
-std::string delimiter = ":";
+static std::string delimiter = ":";
 
 /* -------------------------------- 定义KV存储节点 -------------------------------- */
 template <typename K, typename V>
