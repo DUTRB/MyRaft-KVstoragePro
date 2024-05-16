@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/test_server.dir/server.cpp.o -o ../../../bin/test_server   -L/home/void/Documents/Raft/myRaft/lib  -Wl,-rpath,/home/void/Documents/Raft/myRaft/lib ../../../lib/libfiber_lib.a -lpthread -ldl -ldl 

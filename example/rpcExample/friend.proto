@@ -1,0 +1,28 @@
+syntax = "proto3";
+// 定义了protobuf文件的包名，它相当于编程语言中的命名空间
+package fixbug;  //所在的命名空间
+// 特定于C++的，它指示protobuf编译器为服务生成存根（stub）代码和RPC相关的代码
+option cc_generic_services = true;  //开启桩stub服务
+
+message ResultCode
+{
+    int32 errcode = 1;
+    bytes errmsg = 2;
+}
+
+message GetFriendsListRequest  //请求
+{
+    uint32 userid = 1;
+}
+
+message GetFriendsListResponse  //响应
+{
+    ResultCode result = 1;
+    repeated bytes friends = 2;
+}
+
+// 好友模块
+service FiendServiceRpc  //具体的服务模块和服务方法
+{
+    rpc GetFriendsList(GetFriendsListRequest) returns(GetFriendsListResponse);
+}
