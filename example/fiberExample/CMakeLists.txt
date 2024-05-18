@@ -17,7 +17,10 @@ add_executable(test_iomanager test_iomanager.cpp)
 target_link_libraries(test_iomanager ${LIB_LIB})
 #add_dependencies(test_iomanager monsoon)
 
-add_executable(test_hook test_hook.cpp)
+add_executable(test_hook test_hook.cpp
+        test_thread.cc)
 target_link_libraries(test_hook ${LIB_LIB})
 #add_dependencies(test_hook monsoon)
 
+add_executable(test_thread test_thread.cc)
+target_link_libraries(test_thread ${LIB_LIB})

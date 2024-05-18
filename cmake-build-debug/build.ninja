@@ -744,6 +744,13 @@ build example/fiberExample/CMakeFiles/test_hook.dir/test_hook.cpp.o: CXX_COMPILE
   OBJECT_DIR = example/fiberExample/CMakeFiles/test_hook.dir
   OBJECT_FILE_DIR = example/fiberExample/CMakeFiles/test_hook.dir
 
+build example/fiberExample/CMakeFiles/test_hook.dir/test_thread.cc.o: CXX_COMPILER__test_hook_unscanned_Debug /home/void/CLionProjects/MyRaft-KVstoragePro/example/fiberExample/test_thread.cc || cmake_object_order_depends_target_test_hook
+  DEP_FILE = example/fiberExample/CMakeFiles/test_hook.dir/test_thread.cc.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/void/CLionProjects/MyRaft-KVstoragePro/src/common/include -I/home/void/CLionProjects/MyRaft-KVstoragePro/src/fiber/include -I/home/void/CLionProjects/MyRaft-KVstoragePro/src/rpc/include -I/home/void/CLionProjects/MyRaft-KVstoragePro/example -I/home/void/CLionProjects/MyRaft-KVstoragePro/src/raftCore/include -I/home/void/CLionProjects/MyRaft-KVstoragePro/src/raftRpcPro/include -I/home/void/CLionProjects/MyRaft-KVstoragePro/src/raftClerk/include -I/home/void/CLionProjects/MyRaft-KVstoragePro/src/skipList/include
+  OBJECT_DIR = example/fiberExample/CMakeFiles/test_hook.dir
+  OBJECT_FILE_DIR = example/fiberExample/CMakeFiles/test_hook.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target test_hook
@@ -752,7 +759,7 @@ build example/fiberExample/CMakeFiles/test_hook.dir/test_hook.cpp.o: CXX_COMPILE
 #############################################
 # Link the executable /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_hook
 
-build /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_hook: CXX_EXECUTABLE_LINKER__test_hook_Debug example/fiberExample/CMakeFiles/test_hook.dir/test_hook.cpp.o | /home/void/CLionProjects/MyRaft-KVstoragePro/lib/libfiber_lib.a || /home/void/CLionProjects/MyRaft-KVstoragePro/lib/libfiber_lib.a
+build /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_hook: CXX_EXECUTABLE_LINKER__test_hook_Debug example/fiberExample/CMakeFiles/test_hook.dir/test_hook.cpp.o example/fiberExample/CMakeFiles/test_hook.dir/test_thread.cc.o | /home/void/CLionProjects/MyRaft-KVstoragePro/lib/libfiber_lib.a || /home/void/CLionProjects/MyRaft-KVstoragePro/lib/libfiber_lib.a
   FLAGS = -g
   LINK_LIBRARIES = -Wl,-rpath,/home/void/CLionProjects/MyRaft-KVstoragePro/lib  /home/void/CLionProjects/MyRaft-KVstoragePro/lib/libfiber_lib.a  -lpthread  -ldl  -ldl
   LINK_PATH = -L/home/void/CLionProjects/MyRaft-KVstoragePro/lib
@@ -761,6 +768,40 @@ build /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_hook: CXX_EXECUTABLE
   PRE_LINK = :
   TARGET_FILE = /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_hook
   TARGET_PDB = test_hook.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_thread
+
+
+#############################################
+# Order-only phony target for test_thread
+
+build cmake_object_order_depends_target_test_thread: phony || cmake_object_order_depends_target_fiber_lib
+
+build example/fiberExample/CMakeFiles/test_thread.dir/test_thread.cc.o: CXX_COMPILER__test_thread_unscanned_Debug /home/void/CLionProjects/MyRaft-KVstoragePro/example/fiberExample/test_thread.cc || cmake_object_order_depends_target_test_thread
+  DEP_FILE = example/fiberExample/CMakeFiles/test_thread.dir/test_thread.cc.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/void/CLionProjects/MyRaft-KVstoragePro/src/common/include -I/home/void/CLionProjects/MyRaft-KVstoragePro/src/fiber/include -I/home/void/CLionProjects/MyRaft-KVstoragePro/src/rpc/include -I/home/void/CLionProjects/MyRaft-KVstoragePro/example -I/home/void/CLionProjects/MyRaft-KVstoragePro/src/raftCore/include -I/home/void/CLionProjects/MyRaft-KVstoragePro/src/raftRpcPro/include -I/home/void/CLionProjects/MyRaft-KVstoragePro/src/raftClerk/include -I/home/void/CLionProjects/MyRaft-KVstoragePro/src/skipList/include
+  OBJECT_DIR = example/fiberExample/CMakeFiles/test_thread.dir
+  OBJECT_FILE_DIR = example/fiberExample/CMakeFiles/test_thread.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_thread
+
+
+#############################################
+# Link the executable /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_thread
+
+build /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_thread: CXX_EXECUTABLE_LINKER__test_thread_Debug example/fiberExample/CMakeFiles/test_thread.dir/test_thread.cc.o | /home/void/CLionProjects/MyRaft-KVstoragePro/lib/libfiber_lib.a || /home/void/CLionProjects/MyRaft-KVstoragePro/lib/libfiber_lib.a
+  FLAGS = -g
+  LINK_LIBRARIES = -Wl,-rpath,/home/void/CLionProjects/MyRaft-KVstoragePro/lib  /home/void/CLionProjects/MyRaft-KVstoragePro/lib/libfiber_lib.a  -lpthread  -ldl  -ldl
+  LINK_PATH = -L/home/void/CLionProjects/MyRaft-KVstoragePro/lib
+  OBJECT_DIR = example/fiberExample/CMakeFiles/test_thread.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_thread
+  TARGET_PDB = test_thread.dbg
 
 
 #############################################
@@ -1099,6 +1140,8 @@ build test_scheduler: phony /home/void/CLionProjects/MyRaft-KVstoragePro/bin/tes
 
 build test_server: phony /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_server
 
+build test_thread: phony /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_thread
+
 # =============================================================================
 # Folder targets.
 
@@ -1121,7 +1164,7 @@ build example/all: phony example/fiberExample/all example/rpcExample/all example
 #############################################
 # Folder: /home/void/CLionProjects/MyRaft-KVstoragePro/cmake-build-debug/example/fiberExample
 
-build example/fiberExample/all: phony /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_server /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_scheduler /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_iomanager /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_hook
+build example/fiberExample/all: phony /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_server /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_scheduler /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_iomanager /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_hook /home/void/CLionProjects/MyRaft-KVstoragePro/bin/test_thread
 
 # =============================================================================
 
