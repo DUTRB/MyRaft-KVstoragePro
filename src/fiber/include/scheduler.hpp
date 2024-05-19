@@ -1,6 +1,10 @@
 #ifndef __MONSOON_SCHEDULER_H__
 #define __MONSOON_SCHEDULER_H__
 
+#include "fiber.hpp"
+#include "mutex.hpp"
+#include "thread.hpp"
+#include "utils.hpp"
 #include <atomic>
 #include <boost/type_index.hpp>
 #include <functional>
@@ -8,15 +12,11 @@
 #include <memory>
 #include <mutex>
 #include <vector>
-#include "fiber.hpp"
-#include "mutex.hpp"
-#include "thread.hpp"
-#include "utils.hpp"
 
 namespace monsoon {
 // 调度任务
 class SchedulerTask {
- public:
+public:
   friend class Scheduler;
   SchedulerTask() { thread_ = -1; }
   SchedulerTask(Fiber::ptr f, int t) : fiber_(f), thread_(t) {}
@@ -36,7 +36,7 @@ class SchedulerTask {
     thread_ = -1;
   }
 
- private:
+private:
   Fiber::ptr fiber_;
   std::function<void()> cb_;
   int thread_;
@@ -44,10 +44,11 @@ class SchedulerTask {
 
 // N->M协程调度器
 class Scheduler {
- public:
+public:
   typedef std::shared_ptr<Scheduler> ptr;
 
-  Scheduler(size_t threads = 1, bool use_caller = true, const std::string &name = "Scheduler");
+  Scheduler(size_t threads = 1, bool use_caller = true,
+            const std::string &name = "Scheduler");
   virtual ~Scheduler();
   const std::string &getName() const { return name_; }
   // 获取当前线程调度器
@@ -61,8 +62,7 @@ class Scheduler {
    * \param task 任务
    * \param thread 指定执行函数的线程，-1为不指定
    */
-  template <class TaskType>
-  void scheduler(TaskType task, int thread = -1) {
+  template <class TaskType> void scheduler(TaskType task, int thread = -1) {
     bool isNeedTickle = false;
     {
       Mutex::Lock lock(mutex_);
@@ -71,23 +71,25 @@ class Scheduler {
     }
 
     if (isNeedTickle) {
-      tickle();  // 唤醒idle协程
+      tickle(); // 唤醒idle协程
     }
     // log
     // std::string tp = "[Callback Func]";
-    // if (boost::typeindex::type_id_with_cvr<TaskType>().pretty_name() != "void (*)()")
+    // if (boost::typeindex::type_id_with_cvr<TaskType>().pretty_name() != "void
+    // (*)()")
     // {
     //     tp = "[Fiber]";
     // }
-    // std::cout << "[scheduler] add scheduler task: " << tp << " success" << std::endl;
-    // std::cout << "[scheduler] add scheduler task success" << std::endl;
+    // std::cout << "[scheduler] add scheduler task: " << tp << " success" <<
+    // std::endl; std::cout << "[scheduler] add scheduler task success" <<
+    // std::endl;
   }
   // 启动调度器
   void start();
   // 停止调度器,等待所有任务结束
   void stop();
 
- protected:
+protected:
   // 通知调度器任务到达
   virtual void tickle();
   /**
@@ -104,18 +106,18 @@ class Scheduler {
   // 返回是否有空闲进程
   bool isHasIdleThreads() { return idleThreadCnt_ > 0; }
 
- private:
+private:
   // 无锁下，添加调度任务
   // todo 可以加入使用clang的锁检查
-  template <class TaskType>
-  bool schedulerNoLock(TaskType t, int thread) {
+  template <class TaskType> bool schedulerNoLock(TaskType t, int thread) {
     bool isNeedTickle = tasks_.empty();
     SchedulerTask task(t, thread);
     if (task.fiber_ || task.cb_) {
       // std::cout << "有效task" << std::endl;
       tasks_.push_back(task);
     }
-    // std::cout << "scheduler noblock: isNeedTickle = " << isNeedTickle << std::endl;
+    // std::cout << "scheduler noblock: isNeedTickle = " << isNeedTickle <<
+    // std::endl;
     return isNeedTickle;
   }
   // 调度器名称
@@ -142,6 +144,6 @@ class Scheduler {
   int rootThread_ = 0;
   bool isStopped_ = false;
 };
-}  // namespace monsoon
+} // namespace monsoon
 
 #endif

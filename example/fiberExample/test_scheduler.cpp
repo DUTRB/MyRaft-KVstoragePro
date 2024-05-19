@@ -3,28 +3,36 @@
 const std::string LOG_HEAD = "[TASK] ";
 
 void test_fiber_1() {
-  std::cout << LOG_HEAD << "tid = " << monsoon::GetThreadId() << ",test_fiber_1 begin" << std::endl;
+  std::cout << LOG_HEAD << "tid = " << monsoon::GetThreadId()
+            << ",test_fiber_1 begin" << std::endl;
 
-  std::cout << LOG_HEAD << "tid = " << monsoon::GetThreadId() << ",test_fiber_1 finish" << std::endl;
+  std::cout << LOG_HEAD << "tid = " << monsoon::GetThreadId()
+            << ",test_fiber_1 finish" << std::endl;
 }
 
 void test_fiber_2() {
-  std::cout << LOG_HEAD << "tid = " << monsoon::GetThreadId() << ",test_fiber_2 begin" << std::endl;
+  std::cout << LOG_HEAD << "tid = " << monsoon::GetThreadId()
+            << ",test_fiber_2 begin" << std::endl;
   // no hook 直接将当前协程阻塞，等效于将当前线程阻塞
   sleep(3);
-  std::cout << LOG_HEAD << "tid = " << monsoon::GetThreadId() << ",test_fiber_2 finish" << std::endl;
+  std::cout << LOG_HEAD << "tid = " << monsoon::GetThreadId()
+            << ",test_fiber_2 finish" << std::endl;
 }
 
 void test_fiber_3() {
-  std::cout << LOG_HEAD << "tid = " << monsoon::GetThreadId() << ",test_fiber_3 begin" << std::endl;
+  std::cout << LOG_HEAD << "tid = " << monsoon::GetThreadId()
+            << ",test_fiber_3 begin" << std::endl;
 
-  std::cout << LOG_HEAD << "tid = " << monsoon::GetThreadId() << ",test_fiber_3 finish" << std::endl;
+  std::cout << LOG_HEAD << "tid = " << monsoon::GetThreadId()
+            << ",test_fiber_3 finish" << std::endl;
 }
 
 void test_fiber_4() {
-  std::cout << LOG_HEAD << "tid = " << monsoon::GetThreadId() << ",test_fiber_4 begin" << std::endl;
+  std::cout << LOG_HEAD << "tid = " << monsoon::GetThreadId()
+            << ",test_fiber_4 begin" << std::endl;
 
-  std::cout << LOG_HEAD << "tid = " << monsoon::GetThreadId() << ",test_fiber_4 finish" << std::endl;
+  std::cout << LOG_HEAD << "tid = " << monsoon::GetThreadId()
+            << ",test_fiber_4 finish" << std::endl;
 }
 
 // user_caller = true,使用main函数进行协程的调度，且单线程
@@ -87,4 +95,4 @@ void test_user_caller_2() {
   std::cout << "main end" << std::endl;
 }
 
-int main() { test_user_caller_1(); }
+int main() { test_user_caller_2(); }

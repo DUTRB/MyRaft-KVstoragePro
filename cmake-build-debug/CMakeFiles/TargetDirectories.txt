@@ -25,6 +25,7 @@
 /home/void/CLionProjects/MyRaft-KVstoragePro/cmake-build-debug/example/fiberExample/CMakeFiles/test_scheduler.dir
 /home/void/CLionProjects/MyRaft-KVstoragePro/cmake-build-debug/example/fiberExample/CMakeFiles/test_iomanager.dir
 /home/void/CLionProjects/MyRaft-KVstoragePro/cmake-build-debug/example/fiberExample/CMakeFiles/test_hook.dir
+/home/void/CLionProjects/MyRaft-KVstoragePro/cmake-build-debug/example/fiberExample/CMakeFiles/test_thread.dir
 /home/void/CLionProjects/MyRaft-KVstoragePro/cmake-build-debug/example/fiberExample/CMakeFiles/edit_cache.dir
 /home/void/CLionProjects/MyRaft-KVstoragePro/cmake-build-debug/example/fiberExample/CMakeFiles/rebuild_cache.dir
 /home/void/CLionProjects/MyRaft-KVstoragePro/cmake-build-debug/example/rpcExample/CMakeFiles/edit_cache.dir

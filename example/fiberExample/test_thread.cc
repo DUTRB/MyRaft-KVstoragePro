@@ -18,7 +18,7 @@ int main(int argc, char **argv)
     for (int i = 0; i < 5; i++)
     {
         // std::cout<<"haha";
-        monsoon::Thread::ptr t(new monsoon::Thread(&func1, "name_" + std::to_string(i)));
+        monsoon::Thread::ptr t(new monsoon::Thread(&func2, "name_" + std::to_string(i)));
         tpool.push_back(t);
     }
 
