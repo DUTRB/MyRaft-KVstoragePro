@@ -71,7 +71,7 @@ void test_user_caller_2() {
   // 默认条件下 threads = 1,即只是用main函数进行协程的调度，等价于
   // 先攒下一些协程，然后切换到调度器的run方法执行这些协程，然后再返回
   // main函数
-  monsoon::Scheduler sc(3, true);
+  monsoon::Scheduler sc(4, true);
 
   sc.scheduler(test_fiber_1);
   sc.scheduler(test_fiber_2);

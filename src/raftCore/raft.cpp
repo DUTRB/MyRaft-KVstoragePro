@@ -6,7 +6,7 @@
 #include <memory>
 
 /**
- * ! @description:
+ * @description:
  * 接收leader发来的日志请求，主要用于检查当前日志是否匹配并同步leader的日志到本机
  *                 实现了Raft协议中Follower节点处理来自Leader节点的AppendEntries
  * RPC请求的逻辑
@@ -427,8 +427,7 @@ void Raft::electionTimeOutTicker() {
       m_mtx.unlock();
     }
     // 休眠时间大于 1 ms
-    if (std::chrono::duration<double, std::milli>(suitableSleepTime).count() >
-        1) {
+    if (std::chrono::duration<double, std::milli>(suitableSleepTime).count() > 1) {
       // 获取当前时间点
       auto start = std::chrono::steady_clock::now();
 
