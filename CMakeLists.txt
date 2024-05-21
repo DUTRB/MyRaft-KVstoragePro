@@ -31,5 +31,6 @@ add_subdirectory(src)
 # example包含了使用的示例代码
 add_subdirectory(example)
 
+# 定义了一个名为skip_list_on_raft的静态库（由STATIC关键字指定）
 add_library(skip_list_on_raft STATIC  ${src_rpc} ${src_fiber} ${rpc_example} ${raftsource} ${src_raftCore} ${src_raftRpcPro})
 target_link_libraries(skip_list_on_raft muduo_net muduo_base pthread dl)
