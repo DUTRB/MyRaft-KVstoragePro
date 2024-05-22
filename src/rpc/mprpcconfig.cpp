@@ -1,13 +1,5 @@
-/*
- * @Author: rubo
- * @Date: 2024-05-10 10:25:58
- * @LastEditors: HUAWEI-Ubuntu ruluy0205@163.com
- * @LastEditTime: 2024-05-15 21:58:13
- * @FilePath: /myRaft/src/rpc/mprpcconfig.cpp
- * @Description: 
- */
 
-#include "./include/mprpcconfig.h"
+#include "mprpcconfig.h"
 
 #include <iostream>
 #include <string>
