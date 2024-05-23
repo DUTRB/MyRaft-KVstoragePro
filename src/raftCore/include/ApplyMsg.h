@@ -2,7 +2,7 @@
 #define APPLYMSG_H
 #include <string>
 class ApplyMsg {
- public:
+public:
   bool CommandValid;
   std::string Command;
   int CommandIndex;
@@ -11,17 +11,11 @@ class ApplyMsg {
   int SnapshotTerm;
   int SnapshotIndex;
 
- public:
-  //两个valid最开始要赋予false！！
+public:
+  // 两个valid最开始要赋予false！！
   ApplyMsg()
-      : CommandValid(false),
-        Command(),
-        CommandIndex(-1),
-        SnapshotValid(false),
-        SnapshotTerm(-1),
-        SnapshotIndex(-1){
-
-        };
+      : CommandValid(false), Command(), CommandIndex(-1), SnapshotValid(false),
+        SnapshotTerm(-1), SnapshotIndex(-1){};
 };
 
-#endif  // APPLYMSG_H
+#endif // APPLYMSG_H
