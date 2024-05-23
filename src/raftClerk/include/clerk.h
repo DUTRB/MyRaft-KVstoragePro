@@ -15,6 +15,7 @@
 #include <vector>
 #include "kvServerRPC.pb.h"
 #include "mprpcconfig.h"
+
 class Clerk {
  private:
   std::vector<std::shared_ptr<raftServerRpcUtil>>

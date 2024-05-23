@@ -58,7 +58,7 @@ int main(int argc, char **argv)
     std::string ip = "127.0.0.1";
     short port = 7788;
     // 接收远程调用
-    auto stub = new fixbug::FiendServiceRpc_Stub(new MprpcChannel(ip, port, false));
+    //auto stub = new fixbug::FiendServiceRpc_Stub(new MprpcChannel(ip, port, false));
     // provider是一个rpc网络服务对象。把UserService对象发布到rpc节点上
     RpcProvider provider;
     // 注册 FriendService() 服务

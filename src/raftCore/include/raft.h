@@ -16,7 +16,7 @@
 #include "boost/any.hpp"
 #include "boost/serialization/serialization.hpp"
 #include "config.h"
-#include "../../fiber/include/monsoon.h"
+#include "monsoon.h"
 #include "raftRpcUtil.h"
 #include "util.h"
 
