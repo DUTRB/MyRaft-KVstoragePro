@@ -284,8 +284,7 @@ void KvServer::ReadRaftApplyCommandLoop() {
     // 如果只操作applyChan不用拿锁，因为applyChan自己带锁
     auto message = applyChan->Pop(); // 阻塞弹出
     DPrintf("---------------tmp-------------[func-KvServer::"
-            "ReadRaftApplyCommandLoop()-kvserver{%d}] 收到了以下raft的消息",
-            m_me);
+            "ReadRaftApplyCommandLoop()-kvserver{%d}] 收到了以下raft的消息", m_me);
     // listen to every command applied by its raft ,delivery to relative RPC
     // Handler
 
@@ -371,9 +370,7 @@ void KvServer::Get(google::protobuf::RpcController *controller,
   done->Run();
 }
 
-KvServer::KvServer(int me, int maxraftstate, std::string nodeInforFileName,
-                   short port)
-    : m_skipList(6) {
+KvServer::KvServer(int me, int maxraftstate, std::string nodeInforFileName, short port): m_skipList(6) {
   std::shared_ptr<Persister> persister = std::make_shared<Persister>(me);
 
   m_me = me;
@@ -430,16 +427,12 @@ KvServer::KvServer(int me, int maxraftstate, std::string nodeInforFileName,
     auto *rpc = new RaftRpcUtil(otherNodeIp, otherNodePort);
     servers.push_back(std::shared_ptr<RaftRpcUtil>(rpc));
 
-    std::cout << "node: " << m_me << "-- 连接 node: " << i << "--- success!"
-              << std::endl;
+    std::cout << "node: " << m_me << "-- 连接 node: " << i << "--- success!" << std::endl;
   }
   sleep(ipPortVt.size() - me); // 等待所有节点相互连接成功，再启动raft
   m_raftNode->init(servers, m_me, persister, applyChan);
   // kv的server直接与raft通信，但kv不直接与raft通信，所以需要把ApplyMsg的chan传递下去用于通信，两者的persist也是共用的
 
-//  m_skipList;
-//  waitApplyCh;
-//  m_lastRequestId;
   m_lastSnapShotRaftLogIndex = 0;
   // todo:感觉这个函数没什么用，不如直接调用raft节点中的snapshot值？？？
   auto snapshot = persister->ReadSnapshot();

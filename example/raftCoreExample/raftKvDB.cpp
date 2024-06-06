@@ -12,7 +12,6 @@
 // #include "kvServer.h"
 #include <kvServer.h>
 #include <unistd.h>
-#include <iostream>
 #include <random>
 
 void ShowArgsHelp();
